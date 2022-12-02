@@ -14,10 +14,7 @@ function templateParse(css, opts) {
 
 	parser.parse();
 
-	if (((opts.syntax.config.jsx || {}).config || opts.syntax.config).unstable_substitute) {
-		parser.root.unstable_substitute = true;
-		substitutions.addSubstitutions(parser.root, css, opts);
-	}
+	substitutions.addSubstitutions(parser.root, css, opts);
 
 	return parser.root;
 }
