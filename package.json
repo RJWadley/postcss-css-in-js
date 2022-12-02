@@ -1,6 +1,6 @@
 {
   "name": "@rjwadley/postcss-css-in-js",
-  "version": "0.39.0",
+  "version": "0.39.1",
   "description": "PostCSS syntax for parsing CSS in JS literals",
   "keywords": [
     "postcss",

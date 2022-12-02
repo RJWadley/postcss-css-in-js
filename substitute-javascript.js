@@ -3,14 +3,18 @@
 const literalsKey = Symbol('Literals');
 const replacementsKey = Symbol('Replaced properties');
 
+const substitutionIndexes = [];
+
 function addSubstitution(item, key, literals) {
 	item[replacementsKey] = item[replacementsKey] || [];
 
 	literals.forEach((literal) => {
-		const position = item[key].indexOf(literal);
+		if (!substitutionIndexes.includes(literal)) substitutionIndexes.push(literal);
+
+		const position = substitutionIndexes.indexOf(literal);
 
 		if (position !== -1) {
-			const substitution = '$dummyValue' + position;
+			const substitution = '$template-literal-expression-' + position;
 
 			item[replacementsKey].push({
 				key,
